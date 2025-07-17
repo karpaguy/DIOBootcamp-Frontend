@@ -15,6 +15,10 @@ p, h1, button, h2 {
 }
 /* ------------------- */
 /* { HEADER } */
+#desktopback {
+    display: none;
+}
+
 header img {
     max-width: 100vw;
 }
@@ -83,8 +87,77 @@ footer {
     display: flex;
     justify-content: center;
     background-color: #23272A;
-    padding: 2rem;
+    padding: 1rem;
 }
 footer img {
-    width: 50%;
+    width: 40%;
+}
+
+@media screen and (min-width: 1280px) {
+    #mobileback {
+        display: none;
+    }
+    #desktopback {
+        display: block;
+    }
+    /* { HEADER } */
+    header .info {
+        align-items: center;
+        justify-content: center;
+        margin: 1rem 0 0 0;
+    }
+    header .title {
+        font-size: 4rem;
+        width: 30%;
+        text-align: center;
+    }
+    header .title+p {
+        text-align: center;
+        width: 60%;
+    }
+    header .button-group {
+        flex-direction: row;
+    }
+    header .button-group button {
+        padding: 16px 2rem;
+    }
+
+
+
+    /* { SECTION } */
+    section {
+        padding: 3rem 0;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+    section .text-area {
+        width: 25%;
+    }
+    section .text-area h2 {
+        font-size: 2.5rem;
+    }
+
+    section:nth-child(2) {
+        flex-direction: row-reverse;
+    }
+
+    section:last-child .text-area {
+        width: auto;
+        align-items: center;
+    }
+    section:last-child .text-area h2 {
+        font-size: 3rem;
+        text-align: center;
+        width: 50%;
+    }
+    section:last-child .text-area p {
+        text-align: center;
+        width: 55%;
+    }
+
+    /* { FOOTER } */
+    footer img {
+        width: 15%;
+    } 
 }
