@@ -12,11 +12,23 @@ body {
     /* SÓ POR ENQUANTO */
 }
 
-/* TEM QUE FAZER MOBILE FIRST!!! >:( */
-/* ol#pokedex-area {
-    max-width: 80%;
-    background-color: red;
-} */
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+ol#pokedex-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
 
 /* Pokemon Card */
 li.pokemon {
@@ -74,6 +86,19 @@ background: linear-gradient(135deg,rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 
     font-size: 0.9rem;
     text-transform: uppercase;
     text-align: center;
+}
+.pokemon-details .stats {
+    margin: 0 10px;
+}
+.pokemon-details .stats .stat {
+    display: flex;
+    gap: 8px;
+    margin: 8px 0;
+}
+.stat .bar {
+    /* Valor de Width vai ser com base em 100% de 255 */
+    width: 47px;
+    background-color: red;
 }
 
 /* Types */
