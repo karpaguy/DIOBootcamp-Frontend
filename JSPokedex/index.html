@@ -8,9 +8,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="./assets/css/global.css">
 
+    <script src="./assets/js/pokeapi.js" defer></script>
     <script src="./assets/js/main.js" defer></script>
 </head>
 <body>
-    <p>Texto</p>
+    <section>
+        <h1>Pokedex</h1>
+        <main>
+            <ol id="pokedex-area">
+
+                <li class="pokemon">
+                    <div class="pokemon-id">
+                        <h2>Nome</h2>
+                        <p>1</p>
+                    </div>
+                    <div class="sprite-area">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="">
+                    </div>
+                    <div class="pokemon-details">
+                        <ol class="types">
+                            <li class="type">GRASS</li>
+                            <li class="type">POISON</li>
+                        </ol>
+                        <ol class="stats">
+                            <li class="stat">HP</li>
+                            <li class="stat">ATK</li>
+                            <li class="stat">DEF</li>
+                            <li class="stat">SPA</li>
+                            <li class="stat">SPD</li>
+                            <li class="stat">SPE</li>
+                        </ol>
+                    </div>
+                </li>
+
+            </ol>
+        </main>
+    </section>
 </body>
 </html>
