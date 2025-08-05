@@ -22,31 +22,82 @@ body {
 li.pokemon {
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 300px;
 
     border: 2px solid black;
-    border-radius: 4px;   
-    padding: 1px; 
+    border-radius: 4px;
 }
+
 .pokemon-id {
     display: flex;
-    background-color: red;
+background: linear-gradient(135deg,rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    border-bottom: 1px solid black;
+    padding: 5px;
 }
 .pokemon-id p {
     font-size: 1.2rem;
 
 }
+
 .sprite-area {
     background-image: url('../images/backgroundHoenn.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 
     min-height: 150px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    padding: 5px;
+
+    border-bottom: 2px solid #2c5415;
+    margin-bottom: 0.5rem;
+}
+.sprite-area img {
+    padding: 0.8rem;
 }
 
 .pokemon-details {
+    
+}
+.pokemon-details .types {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.pokemon-details .types .type {
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 2px; 
+    width: 4rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Types */
+grass {
+    background-color: #7AC74C;
+    border: 1px solid #62a13e;
 
 }
+
+	/* normal: '#A8A77A',
+	fire: '#EE8130',
+	water: '#6390F0',
+	electric: '#F7D02C',
+	grass: '#7AC74C',
+	ice: '#96D9D6',
+	fighting: '#C22E28',
+	poison: '#A33EA1',
+	ground: '#E2BF65',
+	flying: '#A98FF3',
+	psychic: '#F95587',
+	bug: '#A6B91A',
+	rock: '#B6A136',
+	ghost: '#735797',
+	dragon: '#6F35FC',
+	dark: '#705746',
+	steel: '#B7B7CE',
+	fairy: '#D685AD', */
