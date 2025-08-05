@@ -1,2 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+
+* {
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body {
+    padding: 1rem;
+    /* SÓ POR ENQUANTO */
+}
+
+/* TEM QUE FAZER MOBILE FIRST!!! >:( */
+/* ol#pokedex-area {
+    max-width: 80%;
+    background-color: red;
+} */
+
+/* Pokemon Card */
+li.pokemon {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+
+    border: 2px solid black;
+    border-radius: 4px;   
+    padding: 1px; 
+}
+.pokemon-id {
+    display: flex;
+    background-color: red;
+}
+.pokemon-id p {
+    font-size: 1.2rem;
+
+}
+.sprite-area {
+    background-image: url('../images/backgroundHoenn.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    min-height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.pokemon-details {
+
+}
