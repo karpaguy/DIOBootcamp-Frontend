@@ -95,6 +95,10 @@ background: linear-gradient(135deg,rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 
     gap: 8px;
     margin: 8px 0;
 }
+.stat p {
+    width: 10%;
+    text-transform: uppercase;
+}
 .stat .bar {
     /* Valor de Width vai ser com base em 100% de 255 */
     width: 47px;

@@ -5,11 +5,13 @@ function convertDetailToPokemon(detail) {
     // https://pokeapi.co/api/v2/pokemon/1/.
     // console.log(detail)
     const types = detail.types.map( (typeSlot) => typeSlot.type.name );
+    // const statsList = [['HP'], ['ATK'], ['DEF'], ['SPA'], ['SPD'], ['SPE']]
 
-    const statsList = detail.stats.map( (statSlot) =>  statSlot.base_stat);
+    statsList = detail.stats.map( (statSlot) =>  statSlot);
+    console.log(statsList)
     const pokemon = new Pokemon(detail.id, 
         detail.name,
-        detail.types[0],
+        detail.types[0],    
         types,
         statsList,
         detail.sprites.front_default
@@ -17,7 +19,6 @@ function convertDetailToPokemon(detail) {
     return pokemon;
     
 }
-
 
 POKEAPI.getPokemonDetails = (pokemon) => {
     return fetch(pokemon.url)
