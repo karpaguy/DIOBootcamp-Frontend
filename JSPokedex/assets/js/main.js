@@ -29,13 +29,33 @@ function loadPokemon(offset, limit) {
                 </ol>
                 <ol class="stats">
                 ${pokemon.statsList.map(statSlot => {
+                    let bkgColor;
                     const name = statAbbreviations[statSlot.stat.name.toLowerCase()]
-                    const valuePercentage = `${(parseInt(statSlot.base_stat) / 255) * 100}%`
+                    const statInt = parseInt(statSlot.base_stat)
+                    const valuePercentage = `${(statInt / 255) * 100}%`
+
+                    if (statInt < 30) {
+                        bkgColor = "veryLow-value"
+                    }
+                    else if (statInt < 60) {
+                        bkgColor = "low-value"
+                    }
+                    else if (statInt < 90) {
+                        bkgColor = "medium-value"
+                    }
+                    else if (statInt < 130) {
+                        bkgColor = "high-value"
+                    }
+                    else if (statInt < 160) {
+                        bkgColor = "veryHigh-value"
+                    } else {
+                        bkgColor = "super-value"
+                    }
                     return `
                     <li class="stat">
                     <p>${name}</p>
                     <p class="value">${statSlot.base_stat}</p>
-                    <div style="width: ${valuePercentage}" class="bar"></div>
+                    <div style="width: ${valuePercentage}" class="bar ${bkgColor}"></div>
                     </li>`}).join('')}
                 </ol>   
             </div>

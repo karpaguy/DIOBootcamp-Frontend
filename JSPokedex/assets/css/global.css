@@ -42,13 +42,15 @@ li.pokemon {
 
 .pokemon-id {
     display: flex;
-background: linear-gradient(135deg,rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    background: linear-gradient(135deg,rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
     border-bottom: 1px solid black;
     padding: 5px;
+    gap: 8px;
+    font-weight: 600;
 }
 .pokemon-id p {
     font-size: 1.2rem;
-
+    text-transform: capitalize;
 }
 
 .sprite-area {
@@ -79,13 +81,14 @@ background: linear-gradient(135deg,rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 
     gap: 10px;
 }
 .pokemon-details .types .type {
-    border: 1px black solid;
+    /* border: 1px black solid; */
     border-radius: 10px;
     padding: 2px; 
     width: 4rem;
     font-size: 0.9rem;
     text-transform: uppercase;
     text-align: center;
+    color: rgb(0, 0, 0);
 }
 .pokemon-details .stats {
     margin: 0 10px;
@@ -102,31 +105,121 @@ background: linear-gradient(135deg,rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 
 .stat .bar {
     /* Valor de Width vai ser com base em 100% de 255 */
     width: 47px;
-    background-color: red;
+    border-radius: 20px;
 }
 
 /* Types */
-grass {
+.grass {
     background-color: #7AC74C;
     border: 1px solid #62a13e;
-
 }
 
-	/* normal: '#A8A77A',
-	fire: '#EE8130',
-	water: '#6390F0',
-	electric: '#F7D02C',
-	grass: '#7AC74C',
-	ice: '#96D9D6',
-	fighting: '#C22E28',
-	poison: '#A33EA1',
-	ground: '#E2BF65',
-	flying: '#A98FF3',
-	psychic: '#F95587',
-	bug: '#A6B91A',
-	rock: '#B6A136',
-	ghost: '#735797',
-	dragon: '#6F35FC',
-	dark: '#705746',
-	steel: '#B7B7CE',
-	fairy: '#D685AD', */
+.fire {
+    background-color: #EE8130;
+    border: 1px solid #c96c28;
+}
+
+.water {
+    background-color: #6390F0;
+    border: 1px solid #4f76c4;
+}
+
+.electric {
+    background-color: #F7D02C;
+    border: 1px solid #d4b024;
+}
+
+.grass {
+    background-color: #7AC74C;
+    border: 1px solid #62a13e;
+}
+
+.ice {
+    background-color: #96D9D6;
+    border: 1px solid #78b6b3;
+}
+
+.fighting {
+    background-color: #C22E28;
+    border: 1px solid #9e2621;
+}
+
+.poison {
+    background-color: #A33EA1;
+    border: 1px solid #823281;
+}
+
+.ground {
+    background-color: #E2BF65;
+    border: 1px solid #bca551;
+}
+
+.flying {
+    background-color: #A98FF3;
+    border: 1px solid #8872ca;
+}
+
+.psychic {
+    background-color: #F95587;
+    border: 1px solid #d14470;
+}
+
+.bug {
+    background-color: #A6B91A;
+    border: 1px solid #869514;
+}
+
+.rock {
+    background-color: #B6A136;
+    border: 1px solid #958129;
+}
+
+.ghost {
+    background-color: #735797;
+    border: 1px solid #5c457a;
+}
+
+.dragon {
+    background-color: #6F35FC;
+    border: 1px solid #5c2cc9;
+}
+
+.dark {
+    background-color: #705746;
+    border: 1px solid #5a4638;
+}
+
+.steel {
+    background-color: #B7B7CE;
+    border: 1px solid #9494aa;
+}
+
+.fairy {
+    background-color: #D685AD;
+    border: 1px solid #b86d91;
+}
+
+/* Bar-Colors */
+.veryLow-value {
+    background-color: #ff2c2c;
+}
+
+.low-value {
+    background-color: #ffa500;
+}
+
+.medium-value {
+    background-color: #ffdd57
+}
+
+.high-value {
+    background-color: #adff2f;
+}
+
+.veryHigh-value {
+    background-color: #7dc216;;
+}
+
+.super-value {
+    background-color: #00e1ff;
+}
