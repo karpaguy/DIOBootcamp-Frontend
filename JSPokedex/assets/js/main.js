@@ -23,7 +23,7 @@ function loadPokemon(offset, limit) {
             <div class="sprite-area">
                 <img src="${pokemon.sprite}" alt="${pokemon.name}">
             </div>
-            <div class="pokemon-details">
+            <div class="pokemon-details ${pokemon.types[0]}">
                 <ol class="types">
                 ${pokemon.types.map(type => `<li class="type ${type}">${type}</li>`).join('')}
                 </ol>
