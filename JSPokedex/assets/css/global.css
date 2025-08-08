@@ -15,12 +15,17 @@ body {
 main {
     display: flex;
     flex-direction: column;
+
 }
 
 h1 {
     text-align: center;
 }
 
+
+button#pagination {
+    width: 200px;
+}
 
 ol#pokedex-area {
     display: flex;

@@ -1,4 +1,5 @@
 const pokedexArea = document.querySelector('ol#pokedex-area');
+const paginationBtn = document.querySelector('button#pagination');
 
 const statAbbreviations = {
     hp: "HP",
@@ -8,7 +9,8 @@ const statAbbreviations = {
     "special-defense": "SPD",
     speed: "SPE"
 }
-const limit = 5;
+const maxMons = 152;
+const limit = 8;
 let offset = 0;
 
 function loadPokemon(offset, limit) {
@@ -65,4 +67,46 @@ function loadPokemon(offset, limit) {
     
 }
 
-loadPokemon()
+paginationBtn.addEventListener("click", () => {
+    offset += limit;
+    const qtdRecords = offset + limit;
+    if (qtdRecords >= maxMons) {
+        const newLimit = maxRecords - offset;
+        loadPokemon(offset, newLimit)
+    } else {
+        loadPokemon(offset, limit)
+    }
+})
+
+loadPokemon(offset, limit)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// paginationBtn.addEventListener("click", () => {
+//     offset += limit;
+//     const qtdRecords = offset + limit;
+
+//     if (qtdRecords >= maxRecords) {
+//         const newLimit = maxRecords -  offset;
+//         loadPokemons(offset, newLimit);
+
+//         paginationBtn.parentElement.removeChild(paginationBtn);
+//     } else {
+//         loadPokemons(offset, limit);
+//     }
+
+// })
