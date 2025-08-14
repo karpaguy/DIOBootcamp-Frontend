@@ -10,6 +10,12 @@ const state = {
         name: document.querySelector("#card-name"),
         type: document.querySelector("#card-type")
     },
+    playerSides:{
+        player1: "player-cards",
+        player1BOX: document.querySelector(".card-box.framed#player-cards"),
+        computer: "computer-cards",
+        computerBOX: document.querySelector(".card-box.framed#computer-cards"),
+    },
     fieldCards:{
         player: document.querySelector("#player-field-card"),
         computer: document.querySelector("#computer-field-card")
@@ -19,12 +25,9 @@ const state = {
     }
 };
 
-const playerSides = {
-    player1: "player-field-card",
-    computer: "computer-field-card"
-}
 
-const pathImages = ".src/assets/icons/"
+
+const pathImages = "./src/assets/icons/"
 const cardData = [
     {
         id: 0,
@@ -45,7 +48,7 @@ const cardData = [
     {
         id: 2,
         name: "Exodia",
-        type: "Scissors",
+        type: "Scissor",
         img: `${pathImages}exodia.png`,
         WinOf: [0],
         LoseOf: [1]
@@ -64,32 +67,89 @@ async function createCardImage(IdCard, fieldSide) {
     cardImage.setAttribute("data-id", IdCard);
     cardImage.classList.add("card");
 
-    if(fieldSide === playerSides.player1) {
+    if(fieldSide === state.playerSides.player1) {
         cardImage.addEventListener("click", () => {
-            setCardsField(cardData.getAttribute("data-id"));
+            setCardsField(cardImage.getAttribute("data-id"));
         });
+
+        cardImage.addEventListener("mouseover", () => {
+            drawSelectedCard(IdCard);
+        })
     }
 
-    cardImage.addEventListener("mouseover", () => {
-        drawSelectedCard(IdCard);
-    })
-
     return cardImage;
+}
+
+async function setCardsField(cardId) {
+    await removeAllCardsImages()
+
+    let computerCardId = await getRandomCardId();
+    console.log(computerCardId)
+
+    state.fieldCards.player.style.display = "block";
+    state.fieldCards.computer.style.display = "block";
+
+    state.fieldCards.player.src = cardData[cardId].img;
+    state.fieldCards.computer.src = cardData[computerCardId].img;
+
+    let duelResults = await checkDuelResults(cardId, computerCardId);
+
+    await updateScore();
+    await drawButton(duelResults);
+}
+
+async function drawButton(text) {
+    state.actions.button.innerText = text;
+    state.actions.button.style.display = "block";
+}
+
+async function checkDuelResults(cardId, computerCardId) {
+    let duelResults = "Empate"
+    let playerCard = cardData[cardId]
+
+    if (playerCard.WinOf.includes(computerCardId)) {
+        duelResults = "Vitória";
+        state.score.playerScore++;
+    } else if (playerCard.LoseOf.includes(computerCardId)) {
+        duelResults = "Derrota";
+        state.score.computerScore++;
+    }
+
+    return duelResults;
+}
+
+async function removeAllCardsImages() {
+    let {computerBOX, player1BOX} = state.playerSides;
+    let imgElements = computerBOX.querySelectorAll("img");
+    imgElements.forEach((img) => img.remove())
+
+    imgElements = player1BOX.querySelectorAll("img");
+    imgElements.forEach((img) => img.remove());
+}
+
+async function drawSelectedCard(index){
+    state.cardSprites.avatar.src = cardData[index].img;
+    state.cardSprites.name.innerText = cardData[index].name;
+    state.cardSprites.type.innerText = "Attribute: " + cardData[index].type;
+}
+
+async function updateScore() {
+    let { computerScore, playerScore } = state.score
+    state.score.scoreBox.innerText = `Win: ${computerScore} | Lose: ${playerScore}`
 }
 
 async function drawCards(cardNumbers, fieldSide) {
     for(let i = 0; i < cardNumbers; i++) {
         const randomIdCard = await getRandomCardId();
         const cardImage = await createCardImage(randomIdCard, fieldSide);
-    
-        console.log(fieldSide)
+        
         document.querySelector(`#${fieldSide}`).appendChild(cardImage)
     }
 }
 
 function init() {
-    drawCards(5, playerSides.player1)
-    drawCards(5, playerSides.computer)
+    drawCards(5, state.playerSides.player1)
+    drawCards(5, state.playerSides.computer)
 }
 
 init()
