@@ -84,18 +84,38 @@ async function setCardsField(cardId) {
     await removeAllCardsImages()
 
     let computerCardId = await getRandomCardId();
-    console.log(computerCardId)
 
-    state.fieldCards.player.style.display = "block";
-    state.fieldCards.computer.style.display = "block";
+    await ShowHiddenCardFieldsImages(true)
+    await hiddenCardSDetails()
 
-    state.fieldCards.player.src = cardData[cardId].img;
-    state.fieldCards.computer.src = cardData[computerCardId].img;
-
+    await drawCardInField(cardId, computerCardId)
     let duelResults = await checkDuelResults(cardId, computerCardId);
 
     await updateScore();
     await drawButton(duelResults);
+}
+
+async function drawCardInField(cardId, computerCardId) {
+    state.fieldCards.player.src = cardData[cardId].img;
+    state.fieldCards.computer.src = cardData[computerCardId].img;
+}
+
+async function ShowHiddenCardFieldsImages(value) {
+    if (value == true) {
+        state.fieldCards.player.style.display = "block";
+        state.fieldCards.computer.style.display = "block";
+    }
+
+    if (value == false) {
+        state.fieldCards.player.style.display = "none";
+        state.fieldCards.computer.style.display = "none";
+    }
+}
+
+async function hiddenCardSDetails() {
+    state.cardSprites.name.innerText = "";
+    state.cardSprites.type.innerText = "";
+    state.cardSprites.avatar.src = ""
 }
 
 async function drawButton(text) {
@@ -165,6 +185,8 @@ async function playAudio(status) {
 }
 
 function init() {
+    ShowHiddenCardFieldsImages(false)
+    
     drawCards(5, state.playerSides.player1)
     drawCards(5, state.playerSides.computer)
 }

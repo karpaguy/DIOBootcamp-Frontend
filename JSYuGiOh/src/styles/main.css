@@ -89,9 +89,11 @@ main {
 .card-versus__container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding-top: 0.1rem;
     height: 300px;
-    margin-top: 5rem;
+
 }
 
 .versus-top, .versus-bottom {
@@ -122,6 +124,7 @@ main {
     height: 11.2rem;
     width: 8rem;
     border-radius: 8px;
+    border: 1px solid white;
 }
 
 #player-cards .card:hover {
