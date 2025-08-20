@@ -43,6 +43,11 @@ i {
     padding: 0.5rem 1rem;
 }
 
+.header__toggle {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .header__brand .brand__logo {
     width: 3.25rem;
     height: 3.25rem;
@@ -81,13 +86,15 @@ i {
 }
 
 .menu__link.active, .menu__icon,
-.menu__link.active .menu__text {
+.menu__link.active .menu__text,
+.menu__link:hover, .menu__icon,
+.menu__link:hover .menu__text {
     color: var(--primary-color);
+    font-weight: 600;
 }
 
 .menu__icon, .menu__text {
     color: var(--text-color);
-    font-weight: 600;
 }
 
 .menu__icon {
@@ -98,8 +105,38 @@ i {
     text-transform: uppercase;
 }
 
+.header__nav {
+    display: none;
+}
+
+.menu--principal {
+    gap: 1rem;
+}
+
 @media(min-width: 768px) {
-    .menu--mobile {
+    .header {
+        position: fixed;
+        border: 1px solid var(--border-color);
+        padding: 1rem 6rem;
+        background: var(--primary-bg-color);
+    }
+
+    .nav--mobile {
         display: none;
+    }
+
+    .header__nav {
+        display: flex;
+    }
+
+    .header__nav,
+    .header__toggle {
+        min-width: 30%;
+    }
+}
+
+@media(min-width: 1400px) {
+    .header {
+        padding: 1rem 15rem;
     }
 }
