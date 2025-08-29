@@ -13,7 +13,12 @@ const state = {
         hardskills_zone: document.querySelector("#profile-skills-hardskills")
     },
     languages: document.querySelector("#languages"),
-    portfolio: document.querySelector("#portfolio")
+    portfolio: document.querySelector("#portfolio"),
+    experiences : {
+        exp_name: document.querySelector("#profile-experience-name"),
+        period: document.querySelector("#profile-experience-period"),
+        description: document.querySelector("#profile-experience-description")
+    }
 }
 
 function updateProfileInfo(profileData, header) {

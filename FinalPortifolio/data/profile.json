@@ -49,13 +49,14 @@
   ],
   "experiencias": [
     {
-      "nome": "Education Tech Lead ",
-      "descricao": "",
-      "instituicao": "Digital Innovation One (DIO)",
-      "periodo": {
-        "inicio": "03/2021",
-        "fim": "Atualmente"
-      }
+      "name": "Profissão Genérica",
+      "period": "2020 - 2024",
+      "description": "Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste."
+    },
+    {
+      "name": "Profissão Genéricona",
+      "period": "2024 - Atual",
+      "description": "Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste."
     }
   ]
 }
