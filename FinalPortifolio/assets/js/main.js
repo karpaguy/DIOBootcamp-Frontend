@@ -59,7 +59,7 @@ function updateExperience(profileData, exp) {
     exp.innerHTML = profileData.experiences.map(exp => {
         return `
             <li>
-                <h3 class="title">${exp.name}e</h3>
+                <h3 class="title">${exp.name}</h3>
                 <p class="period">${exp.period}</p>
                 <p>${exp.description}</p>
             </li>
