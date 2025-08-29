@@ -9,8 +9,10 @@ const state = {
 
     },
     skills : {
-        softskills_zone: document.querySelector("#profile-skills-softskills")
-    }
+        softskills_zone: document.querySelector("#profile-skills-softskills"),
+        hardskills_zone: document.querySelector("#profile-skills-hardskills")
+    },
+    languages: document.querySelector("#languages")
 }
 
 function updateProfileInfo(profileData, header) {
@@ -29,15 +31,25 @@ function updateProfileInfo(profileData, header) {
 }
 
 function updateSoftSkills(profileData, stateSkills) {
-    stateSkills.softskills_zone.innerHTML = profileData.skills.softSkills.map(skill => 
+    stateSkills.innerHTML = profileData.skills.softSkills.map(skill => 
         `<li>${skill}</li>`).join('')
 
+}
+
+function updateHardSkills(profileData, stateSkills) {
+    stateSkills.innerHTML = profileData.skills.hardSkills.map(skill => `<li><img src="${skill.logo}" alt="${skill.name}" title="${skill.name}"></li>`).join('')
+}
+
+function updateLanguages(profileData, lang) {
+    lang.innerHTML = profileData.languages.map(language => `<li>${language}</li>`).join("")
 }
 
 (async () => {
     const profileData = await fetchProfileData()
     updateProfileInfo(profileData, state.header)
-    updateSoftSkills(profileData, state.skills)
+    updateSoftSkills(profileData, state.skills.softskills_zone)
+    updateHardSkills(profileData, state.skills.hardskills_zone)
+    updateLanguages(profileData, state.languages)
 })()
 
 console.log(state.header.avatar)

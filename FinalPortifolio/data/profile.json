@@ -8,16 +8,20 @@
   "skills": {
     "hardSkills": [
       {
-        "nome": "Android",
-        "logo": "TODO"
+        "nome": "Javascript",
+        "logo": "https://raw.githubusercontent.com/digitalinnovationone/js-developer-portfolio/refs/heads/main/data/imgs/js.png"
       },
       {
-        "nome": "Java",
-        "logo": "TODO"
+        "nome": "Python",
+        "logo": "https://raw.githubusercontent.com/digitalinnovationone/js-developer-portfolio/refs/heads/main/data/imgs/python.png"
       },
       {
-        "nome": "Kotlin",
-        "logo": "TODO"
+        "nome": "Node",
+        "logo": "https://raw.githubusercontent.com/digitalinnovationone/js-developer-portfolio/refs/heads/main/data/imgs/nodejs.png"
+      },
+      {
+        "nome": "SQL",
+        "logo": "https://raw.githubusercontent.com/digitalinnovationone/js-developer-portfolio/refs/heads/main/data/imgs/mysql.png"
       }
     ],
     "softSkills": [
@@ -27,19 +31,9 @@
       "Organização"
     ]
   },
-  "idiomas": [
-    {
-      "nome": "Português",
-      "nivel": "Nativo"
-    },
-    {
-      "nome": "Inglês",
-      "nivel": "Intermediário"
-    },
-    {
-      "nome": "Espanhol",
-      "nivel": "Básico"
-    }
+  "languages": [
+    "Português BR",
+    "Inglês (Intermdiário)"
   ],
   "educacao": [
     {
