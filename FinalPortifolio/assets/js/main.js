@@ -12,7 +12,8 @@ const state = {
         softskills_zone: document.querySelector("#profile-skills-softskills"),
         hardskills_zone: document.querySelector("#profile-skills-hardskills")
     },
-    languages: document.querySelector("#languages")
+    languages: document.querySelector("#languages"),
+    portfolio: document.querySelector("#portfolio")
 }
 
 function updateProfileInfo(profileData, header) {
@@ -44,12 +45,24 @@ function updateLanguages(profileData, lang) {
     lang.innerHTML = profileData.languages.map(language => `<li>${language}</li>`).join("")
 }
 
+function updatePortifolio(profileData, port) {
+    port.innerHTML = profileData.portfolio.map(info => {
+        return `
+        <li>
+            <h3 ${info.github ? 'class="github"' : ''}>${info.name}</h3>
+            <a href="${info.url}" target="_blank">${info.url}</a>
+        </li>       
+        
+        `}).join('')
+}
+
 (async () => {
     const profileData = await fetchProfileData()
     updateProfileInfo(profileData, state.header)
     updateSoftSkills(profileData, state.skills.softskills_zone)
     updateHardSkills(profileData, state.skills.hardskills_zone)
     updateLanguages(profileData, state.languages)
+    updatePortifolio(profileData, state.portfolio)
 })()
 
 console.log(state.header.avatar)
