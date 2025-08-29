@@ -49,7 +49,7 @@ function updatePortifolio(profileData, port) {
     port.innerHTML = profileData.portfolio.map(info => {
         return `
         <li>
-            <h3 ${info.github ? 'class="github"' : ''}>${info.name}</h3>
+            <h3 ${info.git ? 'class="github"' : ''}>${info.name}</h3>
             <a href="${info.url}" target="_blank">${info.url}</a>
         </li>       
         
