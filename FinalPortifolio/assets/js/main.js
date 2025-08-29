@@ -14,11 +14,7 @@ const state = {
     },
     languages: document.querySelector("#languages"),
     portfolio: document.querySelector("#portfolio"),
-    experiences : {
-        exp_name: document.querySelector("#profile-experience-name"),
-        period: document.querySelector("#profile-experience-period"),
-        description: document.querySelector("#profile-experience-description")
-    }
+    experiences : document.querySelector("#profile-experience")
 }
 
 function updateProfileInfo(profileData, header) {
@@ -56,9 +52,18 @@ function updatePortifolio(profileData, port) {
         <li>
             <h3 ${info.git ? 'class="github"' : ''}>${info.name}</h3>
             <a href="${info.url}" target="_blank">${info.url}</a>
-        </li>       
-        
-        `}).join('')
+        </li>`}).join('')
+}
+
+function updateExperience(profileData, exp) {
+    exp.innerHTML = profileData.experiences.map(exp => {
+        return `
+            <li>
+                <h3 class="title">${exp.name}e</h3>
+                <p class="period">${exp.period}</p>
+                <p>${exp.description}</p>
+            </li>
+        `}).join('') 
 }
 
 (async () => {
@@ -68,6 +73,7 @@ function updatePortifolio(profileData, port) {
     updateHardSkills(profileData, state.skills.hardskills_zone)
     updateLanguages(profileData, state.languages)
     updatePortifolio(profileData, state.portfolio)
+    updateExperience(profileData, state.experiences)
 })()
 
 console.log(state.header.avatar)
